@@ -7,7 +7,7 @@ class Client(models.Model):
     _inherits = {'res.partner': 'partner_id'}
 
     partner_id = fields.Many2one('res.partner', required=True, ondelete='cascade', auto_join=True, index=True)
-    client_id = fields.Char(string='Client ID', index=True, readonly=True, copy=False, default=lambda self: _('New'))
+    client_id = fields.Char(string='Client ID', index=True, readonly=True, copy=False)
 
     household = fields.Selection([
         ('individual', 'Individual'),
@@ -25,7 +25,6 @@ class Client(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('client_id', _('New')) == _('New'):
-            vals['client_id'] = self.env['ir.sequence'].next_by_code('crm.client.sequence') or _('New')
-        result = super(Client, self).create(vals)
-        return result
+        record = super(Client, self).create(vals)
+        record.client_id = str(record.id)
+        return record
