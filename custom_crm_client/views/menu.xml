@@ -10,4 +10,11 @@
               parent="menu_root_crm"
               action="action_client"
               sequence="1"/>
+
+    <menuitem id="menu_custom_crm_2"
+          name="Families"
+          parent="menu_root_crm"
+          action="action_family"
+          sequence="2"/>
+
 </odoo>
