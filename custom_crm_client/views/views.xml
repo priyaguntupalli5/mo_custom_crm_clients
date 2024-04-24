@@ -2,16 +2,6 @@
 
 <odoo>
 
-
-    <record id="seq_crm_client" model="ir.sequence">
-        <field name="name">CRM Client</field>
-        <field name="code">crm.client.sequence</field>
-        <field name="prefix">CLI</field>
-        <field name="padding">5</field>
-        <field name="number_increment">1</field>
-    </record>
-
-
     <record id="view_client_tree" model="ir.ui.view">
         <field name="name">crm.client.tree</field>
         <field name="model">crm.client</field>
