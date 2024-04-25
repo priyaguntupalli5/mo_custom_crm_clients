@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="action_service_tag" model="ir.actions.act_window">
+        <field name="name">Services Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.servicetag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+     <menuitem id="menu_custom_crm_conf_3"
+              name="Services Tags"
+              parent="menu_custom_crm_2"
+              action="action_service_tag"
+              sequence="3"/>
+</odoo>
