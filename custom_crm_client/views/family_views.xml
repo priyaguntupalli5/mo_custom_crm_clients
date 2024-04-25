@@ -6,7 +6,9 @@
         <field name="arch" type="xml">
             <form string="Family">
                 <sheet>
-                    <field name="name" string="Family Name" required="1"/>
+                    <group>
+                        <field name="name" string="Family Name" required="1"/>
+                    </group>
                     <notebook>
                         <page string="Clients">
                             <button name="%(action_open_client_form)d" type="action" string="Add Client"
