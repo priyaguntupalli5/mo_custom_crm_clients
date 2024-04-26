@@ -18,6 +18,7 @@
         'views/portal_template.xml',
         'views/error_template.xml',
         'views/thank_you_template.xml',
+        'views/add_family.xml',
     ],
     'demo': [
         'demo/demo.xml',
