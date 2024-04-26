@@ -1,22 +1,28 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
+from odoo.http import request
 
 
-# class CrmCustom(http.Controller):
-#     @http.route('/crm_custom/crm_custom', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class ClientController(http.Controller):
+    @http.route('/crm/client/new', auth='user', website=True)
+    def new_client_form(self, **kwargs):
+        return request.render("custom_crm_client.client_form")
 
-#     @http.route('/crm_custom/crm_custom/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('crm_custom.listing', {
-#             'root': '/crm_custom/crm_custom',
-#             'objects': http.request.env['crm_custom.crm_custom'].search([]),
-#         })
+    @http.route('/crm/client/submit', type='http', auth='user', methods=['POST'], website=True)
+    def submit_client(self, **post):
+        try:
+            client_vals = {
+                'name': post.get('name'),
+                'phone': post.get('phone'),
+                'email': post.get('email'),
+                'household': post.get('household'),
+                # Assume family_id comes from the form if needed, or is handled by default logic
+                'family_id': post.get('family_id', False)
+            }
+            new_client = request.env['crm.client'].sudo().create(client_vals)
+            return request.redirect('/thank_you')
+        except Exception as e:
+            return request.render("custom_crm_client.error_template", {'error': str(e)})
 
-#     @http.route('/crm_custom/crm_custom/objects/<model("crm_custom.crm_custom"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('crm_custom.object', {
-#             'object': obj
-#         })
-
+    @http.route('/thank_you', auth='public', website=True)
+    def thank_you(self, **kwargs):
+        return request.render("custom_crm_client.thank_you_template")

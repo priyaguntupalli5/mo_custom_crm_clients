@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="client_form" name="Client Form">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <div class="jumbotron">
+                    <h1 class="display-4">New Client</h1>
+                    <form id="client_form" action="/crm/client/submit" method="post" class="form-horizontal">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="text" class="form-control" id="phone" name="phone"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="household">Household:</label>
+                            <select class="form-control" id="household" name="household">
+                                <option value="individual">Individual</option>
+                                <option value="family">Family</option>
+                            </select>
+                        </div>
+                        <!-- Hidden button initially -->
+                        <button type="button" id="add_member" style="display: none;" class="btn btn-info">Add Member
+                        </button>
+                        <div id="member_details"
+                             style="display: none;"> <!-- Placeholder for additional member forms -->
+                            <!-- Dynamic content can be loaded here -->
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                var householdSelect = document.getElementById('household');
+                var addButton = document.getElementById('add_member');
+                var memberDetails = document.getElementById('member_details');
+
+                function toggleMemberOptions() {
+                if (householdSelect.value === 'family') {
+                addButton.style.display = 'block'; // Show the Add Member button
+                memberDetails.style.display = 'block'; // Prepare to display member details
+                } else {
+                addButton.style.display = 'none'; // Hide the Add Member button
+                memberDetails.style.display = 'none'; // Hide member details
+                }
+                }
+
+                householdSelect.addEventListener('change', toggleMemberOptions);
+                toggleMemberOptions(); // Initial check
+
+                addButton.addEventListener('click', function() {
+                // Example: Insert a form or other elements into `memberDetails`
+                memberDetails.innerHTML = '<input type="text" name="member_name" placeholder="Member Name"
+                                                  class="form-control"/>';
+                // More complex logic can be added here, such as additional forms or AJAX calls to load forms
+                });
+                });
+            </script>
+
+        </t>
+    </template>
+
+    <!-- Menu item to access the form -->
+    <record id="client_form_menu" model="website.menu">
+        <field name="name">New Client</field>
+        <field name="url">/crm/client/new</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">10</field>
+    </record>
+</odoo>
