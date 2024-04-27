@@ -2,7 +2,7 @@ from odoo import models, fields, api, _
 
 
 class ServiceType(models.Model):
-    _name = 'crm.servicetype'
+    _name = 'crm.service.type'
     _description = "CRM Services Types"
 
     resume = fields.Char(string='Resume', required = True)

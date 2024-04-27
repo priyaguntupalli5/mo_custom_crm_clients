@@ -1,1 +1,1 @@
-from . import client, servicetag, servicestage, servicetype
+from . import client, service_tag, service_stage, service_type

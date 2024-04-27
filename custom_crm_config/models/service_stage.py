@@ -2,7 +2,7 @@ from odoo import models, fields, api, _
 
 
 class ServiceStage(models.Model):
-    _name = 'crm.servicestage'
+    _name = 'crm.service.stage'
     _description = "CRM Services Stages"
 
     New = fields.Char(string='New', required = True)

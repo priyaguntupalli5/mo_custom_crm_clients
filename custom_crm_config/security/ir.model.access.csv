@@ -1,8 +1,8 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 access_crm_client,access_crm_client,model_crm_client,base.group_user,1,1,1,1
 access_crm_service_tag,access_crm_service_tag,model_crm_service_tag,base.group_user,1,1,1,1
-access_crm_servicestage,access_crm_servicestage,model_crm_servicestage,base.group_user,1,1,1,1
-access_crm_servicetype,access_crm_servicetype,model_crm_servicetype,base.group_user,1,1,1,1
+access_crm_service_stage,access_crm_service_stage,model_crm_service_stage,base.group_user,1,1,1,1
+access_crm_service_type,access_crm_service_type,model_crm_service_type,base.group_user,1,1,1,1
 
 
 

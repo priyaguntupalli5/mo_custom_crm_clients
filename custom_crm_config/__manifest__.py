@@ -15,9 +15,9 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/menu.xml',
-        'views/servicetag.xml',
-        'views/servicestage.xml',
-        'views/servicetype.xml'
+        'views/service_tag.xml',
+        'views/service_stage.xml',
+        'views/service_type.xml'
     ],
     'demo': [
         'demo/demo.xml',
