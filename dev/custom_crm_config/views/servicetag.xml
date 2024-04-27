@@ -5,10 +5,19 @@
     <record id="action_service_tag" model="ir.actions.act_window">
         <field name="name">Services Tags</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">crm.servicetag</field>
+        <field name="res_model">crm.service.tag</field>
         <field name="view_mode">tree,form</field>
     </record>
-
+       <record id="view_service_tag_form" model="ir.ui.view">
+        <field name="name">crm.service.tag.tree</field>
+        <field name="model">crm.service.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Service Tags" editable="top">
+                 <field name="name"/>
+                <field name="color" widget="color_picker"/>
+                </tree>
+        </field>
+    </record>
      <menuitem id="menu_custom_crm_conf_3"
               name="Services Tags"
               parent="menu_custom_crm_2"
