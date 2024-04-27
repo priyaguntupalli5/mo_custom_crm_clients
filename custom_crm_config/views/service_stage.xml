@@ -9,6 +9,17 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+       <record id="view_service_stage_form" model="ir.ui.view">
+        <field name="name">crm.service.stage.tree</field>
+        <field name="model">crm.service.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Service Stages" editable="top">
+                <field name="stage_seq" widget="handle" />
+                 <field name="stage_name"/>
+                </tree>
+        </field>
+    </record>
+
      <menuitem id="menu_custom_crm_conf_2"
               name="Services Stages"
               parent="menu_custom_crm_2"
