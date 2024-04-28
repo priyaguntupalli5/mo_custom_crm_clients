@@ -20,9 +20,9 @@
         </field>
     </record>
 
-     <menuitem id="menu_custom_crm_conf_2"
+     <menuitem id="menu_crm_service_stage"
               name="Services Stages"
-              parent="menu_custom_crm_2"
+              parent="menu_custom_crm_config"
               action="action_service_stage"
               sequence="2"/>
 </odoo>

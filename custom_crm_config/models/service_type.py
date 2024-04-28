@@ -1,11 +1,8 @@
-from odoo import models, fields, api, _
-
+from odoo import models, fields
 
 class ServiceType(models.Model):
     _name = 'crm.service.type'
     _description = "CRM Services Types"
-
-    resume = fields.Char(string='Resume', required = True)
-    settlement_plan = fields.Char(string='Settlement Plan', required = True)
-    info_session = fields.Char(string='Information session', required = True)
+    desc_seq = fields.Integer(string='desc sequence')
+    description = fields.Char(string='Description', required=True)
 

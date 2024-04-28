@@ -18,9 +18,9 @@
                 </tree>
         </field>
     </record>
-     <menuitem id="menu_custom_crm_conf_3"
+     <menuitem id="menu_custom_crm_service_tag"
               name="Services Tags"
-              parent="menu_custom_crm_2"
+              parent="menu_custom_crm_config"
               action="action_service_tag"
               sequence="3"/>
 </odoo>

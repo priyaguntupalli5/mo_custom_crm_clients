@@ -13,13 +13,9 @@
 
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
         'views/menu.xml',
-        'views/service_tag.xml',
-        'views/service_stage.xml',
-        'views/service_type.xml'
-    ],
-    'demo': [
-        'demo/demo.xml',
+        'views/service_tag_views.xml',
+        'views/service_stage_views.xml',
+        'views/service_type_views.xml'
     ],
 }

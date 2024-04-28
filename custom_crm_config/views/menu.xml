@@ -5,13 +5,7 @@
               name="CRM"
               sequence="1"/>
 
-    <menuitem id="menu_custom_crm_1"
-              name="Clients"
-              parent="menu_root_crm"
-              action="action_client"
-              sequence="1"/>
-
-    <menuitem id="menu_custom_crm_2"
+    <menuitem id="menu_custom_crm_config"
               name="Configuration"
               parent="menu_root_crm"
               sequence="2"/>
