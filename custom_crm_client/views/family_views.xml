@@ -1,0 +1,57 @@
+<odoo>
+
+    <record id="action_open_client_form" model="ir.actions.act_window">
+        <field name="name">Create Client</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.client</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_family_id': active_id}</field>
+    </record>
+
+    <record id="view_family_form" model="ir.ui.view">
+        <field name="name">crm.family.form</field>
+        <field name="model">crm.family</field>
+        <field name="arch" type="xml">
+            <form string="Family">
+                <sheet>
+                    <group>
+                        <field name="name" string="Family Name" required="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Clients">
+                            <button name="%(action_open_client_form)d" type="action" string="Add Client"
+                                    class="oe_highlight"/>
+                            <field name="client_ids">
+                                <tree editable="false" create="false" delete="false">
+                                    <field name="name" readonly="1"/>
+                                    <field name="client_id" readonly="1"/>
+                                    <field name="immigration_status" readonly="1"/>
+                                    <field name="title" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+
+    </record>
+    <record id="view_family_tree" model="ir.ui.view">
+        <field name="name">crm.family.tree</field>
+        <field name="model">crm.family</field>
+        <field name="arch" type="xml">
+            <tree string="Families">
+                <field name="name"/>
+                <field name="family_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_family" model="ir.actions.act_window">
+        <field name="name">Families</field>
+        <field name="res_model">crm.family</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

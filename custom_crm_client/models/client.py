@@ -8,6 +8,7 @@ class Client(models.Model):
 
     partner_id = fields.Many2one('res.partner', required=True, ondelete='cascade', auto_join=True, index=True)
     client_id = fields.Char(string='Client ID', index=True, readonly=True, copy=False)
+    family_id = fields.Many2one('crm.family', string='Family')
 
     household = fields.Selection([
         ('individual', 'Individual'),

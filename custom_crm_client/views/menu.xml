@@ -5,9 +5,16 @@
               name="Custom CRM"
               sequence="1"/>
 
-    <menuitem id="menu_custom_crm_1"
-              name="Clients"
+    <menuitem id="menu_crm_client"
+              name="Client Details"
               parent="menu_root_crm"
               action="action_client"
               sequence="1"/>
+
+    <menuitem id="menu_crm_family"
+          name="Family Details"
+          parent="menu_root_crm"
+          action="action_family"
+          sequence="2"/>
+
 </odoo>
