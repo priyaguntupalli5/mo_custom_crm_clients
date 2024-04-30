@@ -8,6 +8,15 @@
         <field name="res_model">crm.service.type</field>
         <field name="view_mode">tree,form</field>
     </record>
+      <record id="crm_service_type_search" model="ir.ui.view">
+        <field name="name">crm.service.type.search</field>
+        <field name="model">crm.service.type</field>
+        <field name="arch" type="xml">
+            <search string="Stage Type Search">
+                <field name="description" />
+            </search>
+        </field>
+    </record>
     <record id="view_service_type_tree" model="ir.ui.view">
         <field name="name">crm.service.type.tree</field>
         <field name="model">crm.service.type</field>
