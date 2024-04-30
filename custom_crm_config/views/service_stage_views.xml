@@ -6,7 +6,6 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">crm.service.stage</field>
         <field name="view_mode">tree</field>
-        <field name="search_view_id" ref="crm_service_stage_search"/>
 
     </record>
 
