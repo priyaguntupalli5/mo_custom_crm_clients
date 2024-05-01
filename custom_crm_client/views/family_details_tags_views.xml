@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="action_family_details_tags" model="ir.actions.act_window">
+        <field name="name">Family Details Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.family.details.tags</field>
+        <field name="view_mode">tree</field>
+    </record>
+       <record id="view_family_details_tags_tree" model="ir.ui.view">
+        <field name="name">crm.family.details.tags.tree</field>
+        <field name="model">crm.family.details.tags</field>
+        <field name="arch" type="xml">
+            <tree string="Family Details Tags" editable="top">
+                 <field name="name"/>
+                <field name="color" widget="color_picker"/>
+                </tree>
+        </field>
+    </record>
+     <menuitem id="menu_custom_crm_family_details_tags"
+              name="Family Details Tags"
+              parent="menu_custom_crm_config"
+              action="action_family_details_tags"
+              sequence="4"/>
+</odoo>
