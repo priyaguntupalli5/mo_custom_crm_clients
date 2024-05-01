@@ -18,7 +18,8 @@
         'views/menu.xml',
         'views/service_tag_views.xml',
         'views/service_stage_views.xml',
-        'views/service_type_views.xml'
+        'views/service_type_views.xml',
+        'views/family_details_tags_views.xml',
 
     ],
     'demo': [
