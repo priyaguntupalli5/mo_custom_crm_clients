@@ -55,6 +55,36 @@
                             <field name="category_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
                         </group>
                     </group>
+                     <notebook>
+                <!-- Personal Tab -->
+                <page string="Personal Information">
+                <group>
+                    <group string="Personal Details">
+                        <field name="referred_by_selection"/>
+                        <field name="arrival_date_or_expected_date"/>
+                        <field name="landing_date" />
+                        <field name="english_level" />
+                        <field name="languages_spoken" />
+                        <field name="present_living_situation"/>
+                    </group>
+                    <group string="Other Details">
+                        <field name="mcaf_electronic_messages" />
+                        <field name="share_info_with_mcaf" />
+                        <field name="consent_from_ircc" />
+                        <field name="virtual_info_sessions" />
+                    </group>
+                </group>
+                </page>
+                <!-- Immigration Details Tab -->
+                <page string="Immigration Details">
+                </page>
+                <!-- Employment Details Tab -->
+                <page string="Employment Details">
+                </page>
+                <!-- Interests Tab -->
+                <page string="Interests">
+                </page>
+            </notebook>
                 </sheet>
             </form>
         </field>
@@ -70,6 +100,11 @@
             <p>This is the client list, where you can manage your clients.</p>
         </field>
     </record>
+
+
+
+
+
 
 </odoo>
 
