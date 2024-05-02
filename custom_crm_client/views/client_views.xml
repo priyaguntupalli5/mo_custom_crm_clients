@@ -11,7 +11,6 @@
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="email"/>
-                <field name="household"/>
             </tree>
         </field>
     </record>
@@ -32,27 +31,40 @@
                         </h2>
                     </div>
                     <group>
-                        <group>
+                        <group string="Identification">
                             <field name="client_id" readonly="1"/>
+                            <field name="family_id"
+                                   options="{'no_create': True, 'no_quick_create': True, 'no_create_edit': True}"
+                                   widget="many2one" can_create="false" can_write="true"/>
+                            <field name="uci_no"/>
+                            <field name="client_location" widget="radio"/>
+                            <field name="date_of_birth"/>
+                            <field name="gender"/>
+                            <field name="marital_status"/>
+                            <field name="country_of_origin"/>
+                            <field name="communication_language"/>
+                        </group>
+                        <group string="Contact Information">
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="website"/>
+                        </group>
+                        <group string="Address">
                             <field name="street"/>
                             <field name="street2"/>
                             <field name="city"/>
                             <field name="state_id" class="oe_no_button" options="{'no_create': True}"/>
                             <field name="zip"/>
                             <field name="country_id" class="oe_no_button" options="{'no_create': True}"/>
-                            <field name="household" widget="radio"/>
-                            <field name="immigration_status"/>
                         </group>
-                        <group>
-                            <field name="function" string="Job Position"/>
-                            <field name="phone"/>
-                            <field name="mobile"/>
-                            <field name="email"/>
-                            <field name="website"/>
-                            <field name="title" options="{'no_create': True}"/>
+                        <group string="Other Details">
+                            <field name="immigration_status"/>
                             <field name="lang"/>
-                             <field name="referred_by" placeholder="Referred By e.g., John Doe"/>
                             <field name="category_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="member_type"/>
+                            <field name="immigration_category"/>
+                            <field name="eligible_to_work"/>
                         </group>
                     </group>
                      <notebook>

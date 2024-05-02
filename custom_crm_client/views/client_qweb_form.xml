@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="family_form_menu" model="website.menu">
+        <field name="name">Family Form</field>
+        <field name="url">/crm/family/create</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">10</field>
+    </record>
+    <template id="crm_family_form_template" name="CRM Family Form">
+        <t t-call="website.layout">
+            <style>
+                .container {
+                max-width: 800px;
+                margin: 2rem auto;
+                padding: 2rem;
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                font-family: 'Helvetica', 'Arial', sans-serif;
+                }
+                .res-image {
+                background-image: url("/custom_crm_client/static/description/icon.png");
+                background-size: cover;
+                height: 700px;
+                margin-left: -20px;
+                }
+                h3 {
+                color: #333;
+                padding-bottom: 0.5rem;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid #007BFF;
+                }
+                label {
+                font-weight: bold;
+                margin-top: 1rem;
+                }
+                input, select {
+                width: 100%;
+                padding: 0.8rem;
+                margin-top: 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                transition: border-color 0.3s;
+                }
+                input:focus, select:focus {
+                border-color: #007BFF;
+                outline: none;
+                }
+                button {
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                margin-top: 10px;
+                cursor: pointer;
+                border-radius: 8px;
+                transition: background-color 0.3s;
+                }
+                button:hover {
+                background-color: #0056b3;
+                }
+                .button-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 1rem;
+                }
+                .client + .client {
+                border-top: 2px dashed #ccc;
+                padding-top: 1rem;
+                margin-top: 1rem;
+                }
+            </style>
+
+            <div class="container">
+                <div class="res-head">
+                    <div class="res-image"></div>
+                </div>
+                <form action="/crm/family/submit" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <h3>Family Information</h3>
+                    <label for="family_name">Family Name:</label>
+                    <input type="text" id="family_name" name="family_name" required="required"/>
+                    <label for="family_phone">Family Phone:</label>
+                    <input type="text" id="family_phone" name="family_phone"/>
+                    <label for="family_email">Family Email:</label>
+                    <input type="email" id="family_email" name="family_email"/>
+
+                    <h3>Add Clients</h3>
+                    <div id="clients_container">
+                        <div class="client">
+                            <label for="client_name">Client Name:</label>
+                            <input type="text" name="client_name[]" required="required"/>
+                            <label for="client_phone">Phone:</label>
+                            <input type="text" name="client_phone[]"/>
+                            <label for="client_email">Email:</label>
+                            <input type="email" name="client_email[]"/>
+                            <label for="client_street">Street:</label>
+                            <input type="text" name="client_street[]"/>
+                            <label for="client_street2">Street 2:</label>
+                            <input type="text" name="client_street2[]"/>
+                            <label for="client_city">City:</label>
+                            <input type="text" name="client_city[]"/>
+                            <label for="client_state_id">State:</label>
+                            <select name="client_state_id[]">
+                                <t t-foreach="states" t-as="state">
+                                    <option t-att-value="state.id">
+                                        <t t-esc="state.name"/>
+                                    </option>
+                                </t>
+                            </select>
+                            <div class="button-container">
+                                <button type="button" onclick="addClient(this)">Add Client</button>
+                                <button type="button" onclick="removeClient(this)">Remove Client</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <script>
+                function addClient(element) {
+                var container = document.getElementById('clients_container');
+                var newClient = document.querySelector('.client').cloneNode(true);
+                newClient.querySelectorAll('input, select').forEach(function(input) {
+                input.value = ''; // Clear inputs for the new client
+                });
+                container.appendChild(newClient);
+                }
+
+                function removeClient(element) {
+                var container = document.getElementById('clients_container');
+                if (container.children.length > 1) {
+                element.closest('.client').remove();
+                } else {
+                alert('At least one client is required.');
+                }
+                }
+            </script>
+        </t>
+    </template>
+</odoo>

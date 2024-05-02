@@ -17,6 +17,8 @@
                 <sheet>
                     <group>
                         <field name="name" string="Family Name" required="1"/>
+                        <field name="family_phone" string="Family Phone" required="1"/>
+                        <field name="family_email" string="Family Email" required="1"/>
                     </group>
                     <notebook>
                         <page string="Clients">
