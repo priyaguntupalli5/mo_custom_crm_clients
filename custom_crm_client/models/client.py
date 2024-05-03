@@ -62,6 +62,38 @@ class Client(models.Model):
     consent_from_ircc = fields.Boolean(string="Consent for Future Research/Consultation from IRCC")
     virtual_info_sessions = fields.Boolean(string="Virtual information sessions")
 
+    #Employment Details tab
+    profession = fields.Char(string="Profession")
+    career_continuity = fields.Selection([
+        ("continue in my profession","Continue in my profession"),
+        ("make a change", "Make a change")
+    ], string="Career Continuity")
+    job_experience = fields.Selection([
+        ("0-1 year","0 to 1 Year"),
+        ("1-3 years", "1 to 3 Years"),
+        ("3-5 years", "3 to 5 Years"),
+        ("5+ years", "5+ Years")
+    ], string="Job Experience")
+    looking_for_job = fields.Selection([("yes","Yes"),("no","No")],string="Looking for Job")
+    business_opening_interest = fields.Selection([("yes","Yes"),("no","No")],string="Interested in opening own business")
+    business_desc = fields.Char(string="Business Description")
+    employment_pref = fields.Selection([("full-time","Full time"),("part-time","Part time")],string="Employment Preference")
+    mentorship = fields.Selection([("yes","Yes"),("no","No")],string="Mentorship")
+    #clients education background
+    education_qualification = fields.Selection([
+        ("some high school","Some High School"),
+        ("high school","High School"),
+        ("ged","GED"),
+        ("diploma","Diploma"),
+        ("bachelors","Bachelors"),
+        ("masters","Masters"),
+        ("phd","PhD")
+    ], string="Education Qualification")
+    education_qualification_summary = fields.Char(string="Education Qualification Summary")
+    canada_study_interest = fields.Char(string="Interest to Study in Canada")
+    interest_areas = fields.Char(string="Areas of Interest")
+    fq_assessment = fields.Selection([("yes","Yes"),("no","No")],string="FQ Assessment")
+
     @api.model
     def create(self, vals):
         record = super(Client, self).create(vals)

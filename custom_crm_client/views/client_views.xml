@@ -78,9 +78,29 @@
                 </page>
                 <!-- Immigration Details Tab -->
                 <page string="Immigration Details">
+
                 </page>
                 <!-- Employment Details Tab -->
                 <page string="Employment Details">
+                <group>
+                    <group string="Employment Details">
+                        <field name="profession"/>
+                        <field name="career_continuity" />
+                        <field name="job_experience"/>
+                        <field name="looking_for_job"/>
+                        <field name="business_opening_interest" />
+                        <field name="business_desc"/>
+                        <field name="employment_pref"/>
+                        <field name="mentorship"/>
+                    </group>
+                    <group string="Client's education background">
+                        <field name="education_qualification"/>
+                        <field name="education_qualification_summary" />
+                        <field name="canada_study_interest"/>
+                        <field name="interest_areas"/>
+                        <field name="fq_assessment" />
+                    </group>
+                 </group>
                 </page>
                 <!-- Interests Tab -->
                 <page string="Interests">
