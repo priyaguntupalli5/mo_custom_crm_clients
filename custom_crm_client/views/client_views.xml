@@ -78,7 +78,17 @@
                 </page>
                 <!-- Immigration Details Tab -->
                 <page string="Immigration Details">
-
+                    <group>
+                        <group string="Immigration Information">
+                            <field name="arrival_date_or_expected_date" />
+                            <field name="landing_date" />
+                            <field name="landed_location" />
+                            <field name="settlement_plan_available" />
+                        </group>
+                        <group string="Immigration Documents">
+                            <field name="immigration_document"/>
+                        </group>
+                    </group>
                 </page>
                 <!-- Employment Details Tab -->
                 <page string="Employment Details">

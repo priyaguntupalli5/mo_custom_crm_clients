@@ -62,6 +62,14 @@ class Client(models.Model):
     consent_from_ircc = fields.Boolean(string="Consent for Future Research/Consultation from IRCC")
     virtual_info_sessions = fields.Boolean(string="Virtual information sessions")
 
+    #immigration details tab
+    arrival_date_or_expected_date = fields.Datetime(string="Arrival Date/Expected Date")
+    landing_date = fields.Datetime(string="Landing Date")
+    landed_location = fields.Char(string="Landed Location")
+    settlement_plan_available = fields.Selection([("yes","Yes"),("no","No")], string="Settlement Plan Available")
+    #immigration document
+    immigration_document = fields.Binary(string="Immigration Document")
+
     #Employment Details tab
     profession = fields.Char(string="Profession")
     career_continuity = fields.Selection([
