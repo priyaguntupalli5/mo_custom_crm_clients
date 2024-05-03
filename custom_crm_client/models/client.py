@@ -94,6 +94,9 @@ class Client(models.Model):
     interest_areas = fields.Char(string="Areas of Interest")
     fq_assessment = fields.Selection([("yes","Yes"),("no","No")],string="FQ Assessment")
 
+    #interests tab
+    volunteering = fields.Boolean(string="Volunteering")
+
     @api.model
     def create(self, vals):
         record = super(Client, self).create(vals)

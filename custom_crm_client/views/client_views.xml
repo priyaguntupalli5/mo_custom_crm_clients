@@ -104,6 +104,9 @@
                 </page>
                 <!-- Interests Tab -->
                 <page string="Interests">
+                    <group string="Client Interests">
+                        <field name="volunteering" />
+                    </group>
                 </page>
             </notebook>
                 </sheet>
