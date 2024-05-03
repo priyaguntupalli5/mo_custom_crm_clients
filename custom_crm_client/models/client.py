@@ -42,8 +42,12 @@ class Client(models.Model):
         ('employer/ co-worker','Employer/ Co-worker'),
         ('community cerner/ library','Community Cerner/ Library')
     ], string="Referred By")
-    arrival_date_or_expected_date = fields.Datetime(string="Arrival Date/Expected Date")
-    landing_date =fields.Datetime(string="Landing Date")
+    computer_skills = fields.Selection([
+        ("basic", "Basic"),
+        ("intermediate","Intermediate"),
+        ("advanced", "Advanced")
+    ], string="Computer Skills")
+    interpreter_needed = fields.Selection([("yes","Yes"),("no","No")],string="Interpreter Needed")
     english_level = fields.Selection([
         ("beginner", "Beginner"),
         ("intermediate", "Intermediate"),
@@ -51,6 +55,7 @@ class Client(models.Model):
     ], string="English Level")
     languages_spoken = fields.Char(string="Languages Spoken")
     present_living_situation = fields.Char(string="Present Living Situation")
+    disability_support = fields.Selection([("yes","Yes"),("no","No")], string="Required support for Disability")
     #other details
     mcaf_electronic_messages = fields.Boolean(string="MCAF's Electronic Messages")
     share_info_with_mcaf = fields.Boolean(string="Share information with MCAF Staff")

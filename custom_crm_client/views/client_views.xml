@@ -61,11 +61,12 @@
                 <group>
                     <group string="Personal Details">
                         <field name="referred_by_selection"/>
-                        <field name="arrival_date_or_expected_date"/>
-                        <field name="landing_date" />
                         <field name="english_level" />
+                        <field name="computer_skills"/>
+                        <field name="interpreter_needed"/>
                         <field name="languages_spoken" />
                         <field name="present_living_situation"/>
+                        <field name="disability_support"/>
                     </group>
                     <group string="Other Details">
                         <field name="mcaf_electronic_messages" />
