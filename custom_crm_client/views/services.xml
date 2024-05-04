@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- custom CRM services form view -->
+    <record id="crm_services_form" model="ir.ui.view">
+    <field name="name">crm.services.form</field>
+    <field name="model">crm.services</field>
+    <field name="arch" type="xml">
+         <form>
+             <sheet>
+                    <h1>
+                         <field name="name" placeholder=" Enter the name"/>
+                     </h1>
+                 <group>
+                        <group>
+                            <field name="date"/>to<field name="enddate"/>
+                            <field name="serviceTypes" />
+                            <field name="description" placeholder=" Enter Your Description"/>
+                        </group>
+
+                    <group>
+                        <field name="serviceTypes" />
+<!--                        <field name="servicestage"  />-->
+                        <field name="responsible"/>
+                        <field name="tags"/>
+                        <field name="contact"/>
+                    </group>
+                 </group>
+                 <notebook>
+                    <page string="Details">
+
+
+                    </page>
+
+                </notebook>
+
+             </sheet>
+         </form>
+    </field>
+    </record>
+    <!-- custom CRM services tree view -->
+    <record id="crm_services_view" model="ir.ui.view">
+        <field name="name">crm.services.tree</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+             <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="date"/>
+                    <field name="serviceTypes" widget="handle"/>
+<!--                   <field name="servicestage" widget="selection"/>-->
+                    <field name="responsible"/>
+                    <field name="tags"/>
+                    <field name="contact" widget="selection"/>
+                </tree>
+        </field>
+    </record>
+    <!-- custom CRM services kanban view -->
+    <record id="crm_services_kanban_view" model="ir.ui.view">
+        <field name="name">crm.services.kanban</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_name" class="o_res_partner_kanban"
+                    js_class="website_pages_kanban"
+                    type ="object" sample="1">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="date"/>
+                <templates>
+                    <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_global_click">
+                        <div t-attf-class="#{!selection_mode ? 'text-center' : ''}">
+                            <i class="fa fa-user" role="img" aria-label="Sample" title="Sample"/>
+                            <strong>
+                                <field name="name"/>
+                                <div class="oe_kanban_details">
+                                <field name="date"/>
+                                </div>
+                            </strong>
+                        </div>
+                        <hr class ="mt4 mb4"/>
+                    </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+     <!-- custom CRM services calendar view -->
+     <record id="crm_services_calendar_view" model="ir.ui.view">
+        <field name="name">crm.services.calendar</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+            <calendar date_start="date" date_stop="date" mode="month" >
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+    <!-- custom CRM services gantt view -->
+    <record id="crm_services_gantt_view" model="ir.ui.view">
+        <field name="name">crm.services.gantt</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+            <gantt date_start="date"  >
+                <field name="name"/>
+            </gantt>
+        </field>
+    </record>
+    <!-- custom CRM services pivot view -->
+    <record id="crm_services_pivot_view" model="ir.ui.view">
+        <field name="name">crm.services.pivot</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="name" type="row"/>
+                <field name="date" interval="month" type="col"/>
+
+            </pivot>
+        </field>
+    </record>
+    <!-- custom CRM services graph view -->
+    <record id="crm_services_graph_view" model="ir.ui.view">
+        <field name="name">crm.services.graph</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+            <graph string="Graph Title" type="bar">
+                <field name="name" type="row"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <!-- custom CRM services actions view -->
+    <record id="action_services" model="ir.actions.act_window">
+    <field name="name">Services</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">crm.services</field>
+    <field name="view_mode">kanban,tree,form,calendar,gantt,pivot,graph</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create the Services</p>
+            <p>This is the Services list, where you can manage your Services.</p>
+        </field>
+    </record>
+
+
+</odoo>
+
