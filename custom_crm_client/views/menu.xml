@@ -16,10 +16,16 @@
               parent="menu_root_crm"
               action="action_family"
               sequence="2"/>
+
+    <menuitem id="menu_crm_services"
+              name="Services"
+              parent="menu_root_crm"
+              action="action_services"
+              sequence="3"/>
     
     <menuitem id="menu_custom_crm_config"
               name="Configuration"
               parent="menu_root_crm"
-              sequence="3"/>
+              sequence="4"/>
 
 </odoo>

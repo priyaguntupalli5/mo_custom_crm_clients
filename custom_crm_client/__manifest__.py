@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/client_views.xml',
         'views/family_views.xml',
+        'views/services.xml',
         'views/menu.xml',
         'views/service_tag_views.xml',
         'views/service_stage_views.xml',
