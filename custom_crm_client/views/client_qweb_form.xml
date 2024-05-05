@@ -9,32 +9,37 @@
     <template id="crm_family_form_template" name="CRM Family Form">
         <t t-call="website.layout">
             <style>
-                .container {
+                .custom-form-container {
                 max-width: 800px;
-                margin: 2rem auto;
-                padding: 2rem;
-                background: #ffffff;
-                border-radius: 12px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                font-family: 'Helvetica', 'Arial', sans-serif;
+                margin: auto;
+                padding: 20px;
+                border-radius: 8px;
+                background: #f9f9f9;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+                .res-head {
+                margin-top: 25px;
+                margin-left: 20px;
                 }
                 .res-image {
-                background-image: url("/custom_crm_client/static/description/icon.png");
+                background-image: url("/custom_crm_client/static/description/banner.png");
                 background-size: cover;
-                height: 700px;
+                height: 300px;
                 margin-left: -20px;
                 }
-                h3 {
+                .custom-form-container h3 {
                 color: #333;
-                padding-bottom: 0.5rem;
                 margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
                 border-bottom: 2px solid #007BFF;
                 }
-                label {
-                font-weight: bold;
+                .custom-form-container label {
+                display: block;
                 margin-top: 1rem;
+                font-weight: bold;
                 }
-                input, select {
+                .custom-form-container input,
+                .custom-form-container select {
                 width: 100%;
                 padding: 0.8rem;
                 margin-top: 0.5rem;
@@ -42,11 +47,12 @@
                 border-radius: 8px;
                 transition: border-color 0.3s;
                 }
-                input:focus, select:focus {
+                .custom-form-container input:focus,
+                .custom-form-container select:focus {
                 border-color: #007BFF;
                 outline: none;
                 }
-                button {
+                .custom-form-container button {
                 background-color: #007BFF;
                 color: white;
                 border: none;
@@ -56,22 +62,21 @@
                 border-radius: 8px;
                 transition: background-color 0.3s;
                 }
-                button:hover {
+                .custom-form-container button:hover {
                 background-color: #0056b3;
                 }
-                .button-container {
+                .custom-form-container .button-container {
                 display: flex;
                 justify-content: space-between;
                 margin-top: 1rem;
                 }
-                .client + .client {
+                .custom-form-container .client + .client {
                 border-top: 2px dashed #ccc;
                 padding-top: 1rem;
                 margin-top: 1rem;
                 }
             </style>
-
-            <div class="container">
+            <div class="container custom-form-container">
                 <div class="res-head">
                     <div class="res-image"></div>
                 </div>

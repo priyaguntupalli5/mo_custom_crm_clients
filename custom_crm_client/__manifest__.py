@@ -22,6 +22,7 @@
         'views/family_details_tags_views.xml',
         'views/client_qweb_form.xml',
         'views/thank_you_template.xml',
+        'views/error_template.xml',
 
     ],
     'demo': [
