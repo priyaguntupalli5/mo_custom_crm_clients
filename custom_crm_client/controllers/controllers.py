@@ -13,17 +13,16 @@ class FamilyClientController(http.Controller):
 
     @http.route('/crm/family/submit', type='http', auth='public', methods=['POST'], website=True)
     def submit_family(self, **kw):
+        Family = request.env['crm.family']
+        Client = request.env['crm.client']
+        request.env.cr.execute('SAVEPOINT create_family')  # Create a savepoint
         try:
-            Family = request.env['crm.family']
-            Client = request.env['crm.client']
-
             family_data = {
                 'name': request.httprequest.form.get('family_name'),
                 'family_phone': request.httprequest.form.get('family_phone'),
                 'family_email': request.httprequest.form.get('family_email')
             }
             family = Family.create(family_data)
-
             client_names = request.httprequest.form.getlist('client_name[]')
             client_phones = request.httprequest.form.getlist('client_phone[]')
             client_emails = request.httprequest.form.getlist('client_email[]')
@@ -34,8 +33,7 @@ class FamilyClientController(http.Controller):
 
             for name, phone, email, street, street2, city, state_id in zip(client_names, client_phones, client_emails,
                                                                            client_streets, client_streets2,
-                                                                           client_cities,
-                                                                           client_state_ids):
+                                                                           client_cities, client_state_ids):
                 if name:
                     Client.create({
                         'name': name,
@@ -47,8 +45,8 @@ class FamilyClientController(http.Controller):
                         'state_id': int(state_id) if state_id else False,
                         'family_id': family.id
                     })
-
             return request.render('custom_crm_client.submission_thanks', {})
         except Exception as e:
+            request.env.cr.execute('ROLLBACK TO SAVEPOINT create_family')  # Rollback to the savepoint
             _logger.error("Error submitting form: %s", e)
             return request.render('custom_crm_client.error_template', {'error': str(e)})
