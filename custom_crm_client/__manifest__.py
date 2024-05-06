@@ -9,7 +9,7 @@
     "application": True,
     "installable": True,
     'version': '16.0.1.0.0',
-    'depends': ['base', 'mail'],
+    'depends': ['base', 'mail', 'website'],
 
     'data': [
         'security/ir.model.access.csv',
@@ -21,6 +21,9 @@
         'views/service_stage_views.xml',
         'views/service_type_views.xml',
         'views/family_details_tags_views.xml',
+        'views/client_qweb_form.xml',
+        'views/thank_you_template.xml',
+        'views/error_template.xml',
 
     ],
     'demo': [

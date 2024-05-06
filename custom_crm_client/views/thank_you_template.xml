@@ -1,0 +1,10 @@
+<odoo>
+    <template id="submission_thanks" name="Submission Thanks">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Thank you for your submission!</h1>
+                <p>Your information has been successfully submitted.</p>
+            </div>
+        </t>
+    </template>
+</odoo>
