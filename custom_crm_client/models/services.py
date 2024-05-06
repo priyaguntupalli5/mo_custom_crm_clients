@@ -26,20 +26,20 @@ class Services(models.Model):
                                 string='Stage Name',
                                 ondelete='set null',
                                 help="Select a Stage.")
-    uci_no = fields.Integer(string='UCI Number ')
+
 
     client_id = fields.Many2one('crm.client',  string='client_id')
 
-    serviceslocation = fields.Selection([
+    services_location = fields.Selection([
         ('Mcaf', 'Mcaf'),
         ], string=" Service Location")
 
-    ircc_servicestype = fields.Selection([
+    ircc_services_type = fields.Selection([
         ('Information session', 'Information session'),
         ('Settlement Plan', 'Settlement Plan'),
         ('Resume', 'Resume')], string="IRCC Service Types")
 
-    serviceTypes = fields.Selection([
+    service_types = fields.Selection([
     ('Information session', 'Information session'),
     ('Settlement Plan', 'Settlement Plan'),
     ('Resume', 'Resume')], string="Service Types")
