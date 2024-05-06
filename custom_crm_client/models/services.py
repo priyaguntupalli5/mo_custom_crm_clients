@@ -20,9 +20,9 @@ class Services(models.Model):
     enddate = fields.Date(string='End date')
 
 
-    #stage_name = fields.One2many('crm.client', 'service_id', string='Stage Name')
 
-    stage_ID = fields.Many2one('crm.service_stage',
+
+    stage_id = fields.Many2one('crm.service_stage',
                                 string='Stage Name',
                                 ondelete='set null',
                                 help="Select a Stage.")

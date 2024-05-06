@@ -8,13 +8,13 @@ class ServiceStage(models.Model):
     stage_seq = fields.Integer(string='stage sequence')
     stage_name = fields.Char(string='Stage Name', required=True, translate=True)
 
-    # services_stage_id = fields.Char(string='Stage ID', index=True, readonly=True, copy=False)
-    # services_id = fields.One2many('crm.services', 'services_stage_id', string='Stages')
+    services_stage_ID = fields.Char(string='Stage ID', index=True, readonly=True, copy=False)
+    # services_id = fields.One2many('crm.services', 'services_stage_ID', string='Stages')
 
 
 
     @api.model
     def create(self, vals):
         record = super(ServiceStage, self).create(vals)
-        record.stage_id = str(record.id)
+        record.services_stage_ID = str(record.id)
         return record
