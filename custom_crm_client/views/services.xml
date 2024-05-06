@@ -63,8 +63,7 @@
         <field name="name">crm.services.kanban</field>
         <field name="model">crm.services</field>
         <field name="arch" type="xml">
-            <kanban
-                default_group_by="stage_name" class="o_res_partner_kanban"
+            <kanban default_group_by="stage_name" class="o_res_partner_kanban"
                     js_class="website_pages_kanban"
                     type ="object" sample="1">
                 <field name="name"/>
@@ -83,8 +82,6 @@
                             </strong>
                         </div>
                         <hr class ="mt4 mb4"/>
-                        <button class="btn btn-primary" t-on-click="onButtonClick">Click Me</button>
-
                     </div>
                     </t>
                 </templates>
