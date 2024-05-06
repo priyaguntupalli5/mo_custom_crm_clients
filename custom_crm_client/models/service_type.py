@@ -3,6 +3,7 @@ from odoo import models, fields
 class ServiceType(models.Model):
     _name = 'crm.service.type'
     _description = "CRM Services Types"
+    _inherit = ['mail.thread', 'mail.activity.mixin']  # Add inheritance
     sequence = fields.Integer(string='sequence')
     description = fields.Char(string='Description', required=True, translate=True)
     type = fields.Char(string='Type')

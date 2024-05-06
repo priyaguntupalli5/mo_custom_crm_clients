@@ -4,6 +4,7 @@ class Services(models.Model):
     _name = 'crm.services'
     _description = "CRM Services"
    # _inherits = {'res.partner': 'partner_id'}
+    _inherit = ['mail.thread', 'mail.activity.mixin']  # Add inheritance
 
 
 
@@ -15,11 +16,28 @@ class Services(models.Model):
     responsible = fields.Char('Responsible')
     tags = fields.Char('Tags')
     contact = fields.Char('Contact')
+    startdate = fields.Date(string='Start Date')
     enddate = fields.Date(string='End date')
 
-    stage_name = fields.Many2one('crm.service.stage',  string='stage_name')
+
+    #stage_name = fields.One2many('crm.client', 'service_id', string='Stage Name')
+
+    stage_ID = fields.Many2one('crm.service_stage',
+                                string='Stage Name',
+                                ondelete='set null',
+                                help="Select a Stage.")
+    uci_no = fields.Integer(string='UCI Number ')
 
     client_id = fields.Many2one('crm.client',  string='client_id')
+
+    serviceslocation = fields.Selection([
+        ('Mcaf', 'Mcaf'),
+        ], string=" Service Location")
+
+    ircc_servicestype = fields.Selection([
+        ('Information session', 'Information session'),
+        ('Settlement Plan', 'Settlement Plan'),
+        ('Resume', 'Resume')], string="IRCC Service Types")
 
     serviceTypes = fields.Selection([
     ('Information session', 'Information session'),
@@ -33,3 +51,8 @@ class Services(models.Model):
         ('done', 'Done')
     ], default="new", string="Status")
 
+    @api.model
+    def create(self, vals):
+        record = super(Services, self).create(vals)
+        record.service_id = str(record.id)
+        return record
