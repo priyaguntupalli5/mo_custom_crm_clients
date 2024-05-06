@@ -21,10 +21,15 @@ class Services(models.Model):
 
     client_id = fields.Many2one('crm.client',  string='client_id')
 
-
-
     serviceTypes = fields.Selection([
     ('Information session', 'Information session'),
     ('Settlement Plan', 'Settlement Plan'),
     ('Resume', 'Resume')], string="Service Types")
+
+    state = fields.Selection([
+        ('new','New'),
+        ('in-progress','In Progress'),
+        ('delayed', 'Delayed'),
+        ('done', 'Done')
+    ], default="new", string="Status")
 
