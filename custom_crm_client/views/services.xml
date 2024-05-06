@@ -7,6 +7,9 @@
     <field name="model">crm.services</field>
     <field name="arch" type="xml">
          <form>
+             <header>
+                 <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+             </header>
              <sheet>
                     <h1>
                          <field name="name" placeholder=" Enter the name"/>
