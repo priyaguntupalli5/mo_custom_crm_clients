@@ -1,141 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <!-- custom CRM services form view -->
+
     <record id="crm_services_form" model="ir.ui.view">
-    <field name="name">crm.services.form</field>
-    <field name="model">crm.services</field>
-    <field name="arch" type="xml">
-         <form>
-             <header>
-                 <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
-             </header>
-             <sheet>
+        <field name="name">crm.services.form</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
                     <h1>
-                         <field name="name" placeholder=" Enter the name"/>
-                     </h1>
-                 <group>
+                        <field name="name" placeholder=" Enter the name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="service_id"/>
+                            <field name="date"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="description" placeholder=" Enter Your Description"/>
+                            <field name="ircc_services_type"/>
+                        </group>
                         <group>
 
-                            <field name="service_id"/>
-                             <field name="date"/>
-                             <field name="startdate"/>
-                            <field name="enddate"/>
-                            <field name="description" placeholder=" Enter Your Description"/>
-                            <field name="ircc_services_type" />
+
+                            <field name="responsible"/>
+                            <field name="tags"/>
+                            <field name="contact"/>
+                            <field name="services_location"/>
                         </group>
-
-                    <group>
-                        <field name="service_types" />
-<!--                        <field name="servicestage"  />-->
-<!--                        <field name="stage_ID"-->
-<!--                                   options="{'no_create': True, 'no_quick_create': True, 'no_create_edit': True}"-->
-<!--                                   widget="many2one" can_create="false" can_write="true"/>-->
-                        <field name="responsible"/>
-                        <field name="tags"/>
-                        <field name="contact"/>
-                        <field name="services_location"/>
                     </group>
-                 </group>
-                 <notebook>
-                    <page string="Support Services">
-                        <tree editable="false" create="false" delete="false">
-<!--                                    <field name="service" readonly="1"/>-->
-<!--                                    <field name="id" readonly="1"/>-->
-<!--                                    <field name="type" readonly="1"/>-->
-                        </tree>
+                    <notebook>
+                        <page string="Support Services">
+                            <tree editable="false" create="false" delete="false">
 
-                    </page>
+                            </tree>
 
-                </notebook>
-                 <notebook>
-                    <page string=" Details">
+                        </page>
+
+                    </notebook>
+                    <notebook>
+                        <page string=" Details">
 
 
-                    </page>
+                        </page>
 
-                </notebook>
+                    </notebook>
 
-             </sheet>
-             <div class="oe_chatter">
+                </sheet>
+                <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
                     <field name="message_ids" widget="mail_thread"/>
                     <field name="activity_ids" widget="mail_thread"/>
 
                 </div>
-         </form>
-    </field>
+            </form>
+        </field>
     </record>
-    <!-- custom CRM services tree view -->
+
     <record id="crm_services_view" model="ir.ui.view">
         <field name="name">crm.services.tree</field>
         <field name="model">crm.services</field>
         <field name="arch" type="xml">
-             <tree>
-                    <field name="name"/>
-                    <field name="date"/>
-                    <field name="description"/>
-
-                    <field name="startdate"/><field name="enddate"/>
-                    <field name="service_types" widget="handle"/>
-<!--                   <field name="servicestage" widget="selection"/>-->
-                    <field name="responsible"/>
-                    <field name="tags"/>
-                    <field name="contact" widget="selection"/>
-                </tree>
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="responsible"/>
+                <field name="tags"/>
+                <field name="contact" widget="selection"/>
+            </tree>
         </field>
     </record>
-    <!-- custom CRM services kanban view -->
+
     <record id="crm_services_kanban_view" model="ir.ui.view">
         <field name="name">crm.services.kanban</field>
         <field name="model">crm.services</field>
         <field name="arch" type="xml">
             <kanban default_group_by="state" class="o_res_partner_kanban"
                     js_class="website_pages_kanban"
-                    type ="object" sample="1">
+                    type="object" sample="1">
                 <field name="name"/>
                 <field name="description"/>
                 <field name="date"/>
                 <templates>
                     <t t-name="kanban-box">
-                    <div t-attf-class="oe_kanban_global_click">
-                        <div t-attf-class="#{!selection_mode ? 'text-center' : ''}">
-                            <i class="fa fa-user" role="img" aria-label="Sample" title="Sample"/>
-                            <strong>
-                                <field name="name"/>
-                                <div class="oe_kanban_details">
-                                <field name="date"/>
-                                </div>
-                            </strong>
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div t-attf-class="#{!selection_mode ? 'text-center' : ''}">
+                                <i class="fa fa-user" role="img" aria-label="Sample" title="Sample"/>
+                                <strong>
+                                    <field name="name"/>
+                                    <div class="oe_kanban_details">
+                                        <field name="date"/>
+                                    </div>
+                                </strong>
+                            </div>
+                            <hr class="mt4 mb4"/>
                         </div>
-                        <hr class ="mt4 mb4"/>
-                    </div>
                     </t>
                 </templates>
             </kanban>
         </field>
     </record>
-     <!-- custom CRM services calendar view -->
-     <record id="crm_services_calendar_view" model="ir.ui.view">
+
+    <record id="crm_services_calendar_view" model="ir.ui.view">
         <field name="name">crm.services.calendar</field>
         <field name="model">crm.services</field>
         <field name="arch" type="xml">
-            <calendar date_start="date" date_stop="date" mode="month" >
+            <calendar date_start="date" date_stop="date" mode="month">
                 <field name="name"/>
             </calendar>
         </field>
     </record>
-    <!-- custom CRM services gantt view -->
+
     <record id="crm_services_gantt_view" model="ir.ui.view">
         <field name="name">crm.services.gantt</field>
         <field name="model">crm.services</field>
         <field name="arch" type="xml">
-            <gantt date_start="date"  >
+            <gantt date_start="date">
                 <field name="name"/>
             </gantt>
         </field>
     </record>
-    <!-- custom CRM services pivot view -->
+
     <record id="crm_services_pivot_view" model="ir.ui.view">
         <field name="name">crm.services.pivot</field>
         <field name="model">crm.services</field>
@@ -147,7 +138,7 @@
             </pivot>
         </field>
     </record>
-    <!-- custom CRM services graph view -->
+
     <record id="crm_services_graph_view" model="ir.ui.view">
         <field name="name">crm.services.graph</field>
         <field name="model">crm.services</field>
@@ -159,12 +150,11 @@
         </field>
     </record>
 
-    <!-- custom CRM services actions view -->
     <record id="action_services" model="ir.actions.act_window">
-    <field name="name">Services</field>
-    <field name="type">ir.actions.act_window</field>
-    <field name="res_model">crm.services</field>
-    <field name="view_mode">kanban,tree,form,calendar,gantt,pivot,graph</field>
+        <field name="name">Services</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.services</field>
+        <field name="view_mode">kanban,tree,form,calendar,gantt,pivot,graph</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Create the Services</p>
             <p>This is the Services list, where you can manage your Services.</p>
