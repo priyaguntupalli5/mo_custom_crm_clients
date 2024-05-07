@@ -17,7 +17,7 @@ class Services(models.Model):
     contact = fields.Char('Contact')
     enddate = fields.Date(string='End date')
 
-    stage_name = fields.Many2one('crm.service.stage',  string='stage_name')
+    stage_id = fields.Many2one('crm.service.stage',  string='Stage',group_expand='_expand_stage_groups')
 
     client_id = fields.Many2one('crm.client',  string='client_id')
 
@@ -32,4 +32,7 @@ class Services(models.Model):
         ('delayed', 'Delayed'),
         ('done', 'Done')
     ], default="new", string="Status")
+
+    def _expand_stage_groups(self, stages, domain, order):
+        return stages.search([], order=order)
 
