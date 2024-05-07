@@ -24,7 +24,7 @@
         'views/client_qweb_form.xml',
         'views/thank_you_template.xml',
         'views/error_template.xml',
-
+        'views/naars_stage_views.xml',
     ],
     'demo': [
         'demo/demo.xml',
