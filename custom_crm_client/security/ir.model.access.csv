@@ -6,4 +6,4 @@ access_crm_service_stage,access_crm_service_stage,model_crm_service_stage,base.g
 access_crm_service_type,access_crm_service_type,model_crm_service_type,base.group_user,1,1,1,1
 access_crm_family_details_tags,access_crm_family_details_tags,model_crm_family_details_tags,base.group_user,1,1,1,1
 access_crm_services,access_crm_services,model_crm_services,base.group_user,1,1,1,1
-
+access_crm_naars_stage,access_crm_naars_stage,model_crm_naars_stage,base.group_user,1,1,1,1
