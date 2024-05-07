@@ -22,10 +22,16 @@
               parent="menu_root_crm"
               action="action_services"
               sequence="3"/>
-    
+
+    <menuitem id="menu_crm_department"
+              name="Departments"
+              parent="menu_custom_crm_config"
+              action="action_hr_department"
+              sequence="4"/>
+
     <menuitem id="menu_custom_crm_config"
               name="Configuration"
               parent="menu_root_crm"
-              sequence="4"/>
+              sequence="5"/>
 
 </odoo>

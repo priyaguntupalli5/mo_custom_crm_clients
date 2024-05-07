@@ -17,6 +17,13 @@ class Client(models.Model):
                                 ondelete='set null',
                                 help="Select a family for this client.")
     uci_no = fields.Integer(string='UCI Number ')
+    department_ids = fields.Many2many(
+        comodel_name='hr.department',
+        relation='department_client_rel',  # same intermediate relation table as above
+        column1='client_id',
+        column2='department_id',
+        string='Departments'
+    )
 
     client_location = fields.Selection([
         ('insidecanada', 'Inside Canada'),
@@ -49,8 +56,8 @@ class Client(models.Model):
     country_of_origin = fields.Char(string='Country of Origin')
     communication_language = fields.Char(string='Communication Language')
 
-    #Personal Details tab
-    #Personal details
+    # Personal Details tab
+    # Personal details
     referred_by_selection = fields.Selection([
         ('not referred', 'Not referred'),
         ('school', 'School'),
@@ -82,21 +89,21 @@ class Client(models.Model):
     languages_spoken = fields.Char(string="Languages Spoken")
     present_living_situation = fields.Char(string="Present Living Situation")
     disability_support = fields.Selection([("yes", "Yes"), ("no", "No")], string="Required support for Disability")
-    #other details
+    # other details
     mcaf_electronic_messages = fields.Boolean(string="MCAF's Electronic Messages")
     share_info_with_mcaf = fields.Boolean(string="Share information with MCAF Staff")
     consent_from_ircc = fields.Boolean(string="Consent for Future Research/Consultation from IRCC")
     virtual_info_sessions = fields.Boolean(string="Virtual information sessions")
 
-    #immigration details tab
+    # immigration details tab
     arrival_date_or_expected_date = fields.Datetime(string="Arrival Date/Expected Date")
     landing_date = fields.Datetime(string="Landing Date")
     landed_location = fields.Char(string="Landed Location")
     settlement_plan_available = fields.Selection([("yes", "Yes"), ("no", "No")], string="Settlement Plan Available")
-    #immigration document
+    # immigration document
     immigration_document = fields.Binary(string="Immigration Document")
 
-    #Employment Details tab
+    # Employment Details tab
     profession = fields.Char(string="Profession")
     career_continuity = fields.Selection([
         ("continue in my profession", "Continue in my profession"),
@@ -115,7 +122,7 @@ class Client(models.Model):
     employment_pref = fields.Selection([("full-time", "Full time"), ("part-time", "Part time")],
                                        string="Employment Preference")
     mentorship = fields.Selection([("yes", "Yes"), ("no", "No")], string="Mentorship")
-    #clients education background
+    # clients education background
     education_qualification = fields.Selection([
         ("some high school", "Some High School"),
         ("high school", "High School"),
@@ -130,7 +137,7 @@ class Client(models.Model):
     interest_areas = fields.Char(string="Areas of Interest")
     fq_assessment = fields.Selection([("yes", "Yes"), ("no", "No")], string="FQ Assessment")
 
-    #interests tab
+    # interests tab
     volunteering = fields.Boolean(string="Volunteering")
 
     @api.model

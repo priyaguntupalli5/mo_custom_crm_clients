@@ -67,70 +67,73 @@
                             <field name="eligible_to_work"/>
                         </group>
                     </group>
-                     <notebook>
-                <!-- Personal Tab -->
-                <page string="Personal Information">
-                <group>
-                    <group string="Personal Details">
-                        <field name="referred_by_selection"/>
-                        <field name="english_level" />
-                        <field name="computer_skills"/>
-                        <field name="interpreter_needed"/>
-                        <field name="languages_spoken" />
-                        <field name="present_living_situation"/>
-                        <field name="disability_support"/>
-                    </group>
-                    <group string="Other Details">
-                        <field name="mcaf_electronic_messages" />
-                        <field name="share_info_with_mcaf" />
-                        <field name="consent_from_ircc" />
-                        <field name="virtual_info_sessions" />
-                    </group>
-                </group>
-                </page>
-                <!-- Immigration Details Tab -->
-                <page string="Immigration Details">
                     <group>
-                        <group string="Immigration Information">
-                            <field name="arrival_date_or_expected_date" />
-                            <field name="landing_date" />
-                            <field name="landed_location" />
-                            <field name="settlement_plan_available" />
-                        </group>
-                        <group string="Immigration Documents">
-                            <field name="immigration_document"/>
-                        </group>
+                        <field name="department_ids" widget="many2many_tags"/>
                     </group>
-                </page>
-                <!-- Employment Details Tab -->
-                <page string="Employment Details">
-                <group>
-                    <group string="Employment Details">
-                        <field name="profession"/>
-                        <field name="career_continuity" />
-                        <field name="job_experience"/>
-                        <field name="looking_for_job"/>
-                        <field name="business_opening_interest" />
-                        <field name="business_desc"/>
-                        <field name="employment_pref"/>
-                        <field name="mentorship"/>
-                    </group>
-                    <group string="Client's education background">
-                        <field name="education_qualification"/>
-                        <field name="education_qualification_summary" />
-                        <field name="canada_study_interest"/>
-                        <field name="interest_areas"/>
-                        <field name="fq_assessment" />
-                    </group>
-                 </group>
-                </page>
-                <!-- Interests Tab -->
-                <page string="Interests">
-                    <group string="Client Interests">
-                        <field name="volunteering" />
-                    </group>
-                </page>
-            </notebook>
+                    <notebook>
+                        <!-- Personal Tab -->
+                        <page string="Personal Information">
+                            <group>
+                                <group string="Personal Details">
+                                    <field name="referred_by_selection"/>
+                                    <field name="english_level"/>
+                                    <field name="computer_skills"/>
+                                    <field name="interpreter_needed"/>
+                                    <field name="languages_spoken"/>
+                                    <field name="present_living_situation"/>
+                                    <field name="disability_support"/>
+                                </group>
+                                <group string="Other Details">
+                                    <field name="mcaf_electronic_messages"/>
+                                    <field name="share_info_with_mcaf"/>
+                                    <field name="consent_from_ircc"/>
+                                    <field name="virtual_info_sessions"/>
+                                </group>
+                            </group>
+                        </page>
+                        <!-- Immigration Details Tab -->
+                        <page string="Immigration Details">
+                            <group>
+                                <group string="Immigration Information">
+                                    <field name="arrival_date_or_expected_date"/>
+                                    <field name="landing_date"/>
+                                    <field name="landed_location"/>
+                                    <field name="settlement_plan_available"/>
+                                </group>
+                                <group string="Immigration Documents">
+                                    <field name="immigration_document"/>
+                                </group>
+                            </group>
+                        </page>
+                        <!-- Employment Details Tab -->
+                        <page string="Employment Details">
+                            <group>
+                                <group string="Employment Details">
+                                    <field name="profession"/>
+                                    <field name="career_continuity"/>
+                                    <field name="job_experience"/>
+                                    <field name="looking_for_job"/>
+                                    <field name="business_opening_interest"/>
+                                    <field name="business_desc"/>
+                                    <field name="employment_pref"/>
+                                    <field name="mentorship"/>
+                                </group>
+                                <group string="Client's education background">
+                                    <field name="education_qualification"/>
+                                    <field name="education_qualification_summary"/>
+                                    <field name="canada_study_interest"/>
+                                    <field name="interest_areas"/>
+                                    <field name="fq_assessment"/>
+                                </group>
+                            </group>
+                        </page>
+                        <!-- Interests Tab -->
+                        <page string="Interests">
+                            <group string="Client Interests">
+                                <field name="volunteering"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -146,10 +149,6 @@
             <p>This is the client list, where you can manage your clients.</p>
         </field>
     </record>
-
-
-
-
 
 
 </odoo>
