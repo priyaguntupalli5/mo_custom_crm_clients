@@ -8,7 +8,7 @@
     <field name="arch" type="xml">
          <form>
              <header>
-                 <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                 <field name="stage_id" widget="statusbar" options="{'clickable': '1'}"/>
              </header>
              <sheet>
                     <h1>
@@ -63,9 +63,9 @@
         <field name="name">crm.services.kanban</field>
         <field name="model">crm.services</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="stage_name" class="o_res_partner_kanban"
-                    js_class="website_pages_kanban"
-                    type ="object" sample="1">
+            <kanban default_group_by="stage_id"
+                    class="o_kanban_small_column o_kanban_project_tasks"
+                    type ="object">
                 <field name="name"/>
                 <field name="description"/>
                 <field name="date"/>
