@@ -25,6 +25,10 @@ class Client(models.Model):
         string='Departments'
     )
 
+    def get_departments(self):
+        departments = self.env['hr.department'].search([])
+        return departments.read(['name'])
+
     client_location = fields.Selection([
         ('insidecanada', 'Inside Canada'),
         ('outsidecanada', 'Outside Canada')

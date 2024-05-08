@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Department(models.Model):
@@ -12,3 +12,9 @@ class Department(models.Model):
         column2='client_id',
         string='CRM Clients'
     )
+
+    @api.model
+    def get_dynamic_departments(self):
+        # This method would fetch dynamic department data. Customize the filtering as needed.
+        departments = self.search([])  # Adjust this to filter as needed
+        return departments

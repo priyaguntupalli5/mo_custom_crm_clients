@@ -20,7 +20,7 @@
         <field name="name">crm.client.form</field>
         <field name="model">crm.client</field>
         <field name="arch" type="xml">
-            <form string="Client">
+            <form string="Client" js_class="dynamic_notebook">
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -133,6 +133,9 @@
                                 <field name="volunteering"/>
                             </group>
                         </page>
+                    </notebook>
+                    <notebook js_class="dynamic_notebook">
+                        <!-- Existing notebook pages -->
                     </notebook>
                 </sheet>
             </form>

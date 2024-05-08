@@ -30,4 +30,12 @@
     'demo': [
         'demo/demo.xml',
     ],
+
+    'assets': {
+        'web.assets_backend': [
+            'custom_crm_client/static/src/js/custom_widget.js',
+            'custom_crm_client/static/src/xml/custom_widget.xml',
+        ],
+
+    },
 }

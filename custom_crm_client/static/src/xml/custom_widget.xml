@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="DynamicNotebookRenderer" owl="1">
+        <div class="o_form_sheet">
+            <notebook t-foreach="state.departments" t-as="dept">
+                <page t-att-string="dept.name">
+                    <group>
+                        <field name="dept.description"/>
+                    </group>
+                </page>
+            </notebook>
+        </div>
+    </t>
+</templates>
