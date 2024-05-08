@@ -64,8 +64,7 @@
         <field name="model">crm.services</field>
         <field name="arch" type="xml">
             <kanban default_group_by="stage_id"
-                    class="o_res_partner_kanban"
-                    js_class="website_pages_kanban"
+                    class="o_kanban_small_column o_kanban_project_tasks"
                     type ="object">
                 <field name="stage_id"/>
                 <field name="name"/>
